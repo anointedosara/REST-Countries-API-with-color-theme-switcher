@@ -16,7 +16,7 @@ function Details() {
     <div className="w-full m-auto max-w-75 md:max-w-325">
       {filteredData?.map((item, i) => (
         <div className="flex flex-col items-center justify-between md:items-start lg:items-center md:flex-row" key={i}>
-            <Image className="w-full lg:w-[42%] md:w-[50%] size-70 md:size-80 lg:size-100" src={item?.flags?.png} alt={item?.name} width={1000} height={1000} />
+            <Image className="w-full lg:w-[42%] md:w-[50%] size-60 md:size-80 lg:size-100" src={item?.flags?.png} alt={item?.name} width={1000} height={1000} />
             <div className="w-full md:w-[40%] lg:w-[50%] mt-13 md:mt-0">
                 <h3 className="text-[27px] md:text-[35px] font-bold text-gray-950 dark:text-white mb-6 lg:mb-5">{item?.name}</h3>
                 <div className="flex flex-col lg:flex-row justify-between text-blue-900 text-[17px] dark:text-white">

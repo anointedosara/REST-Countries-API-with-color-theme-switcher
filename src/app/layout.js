@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
 
     results = getSearch(results);
     results = getRegionFilter(results);
-
+    
     setData(results);
   };
 
