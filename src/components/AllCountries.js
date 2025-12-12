@@ -1,11 +1,25 @@
 "use client";
+import Loading from "@/app/loading";
 import { DataContext } from "@/contexts/DataContext";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 function AllCountries() {
-  const { data } = useContext(DataContext);
+  const { data, name } = useContext(DataContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="grid w-full gap-10 pb-8 m-auto max-w-75 md:max-w-full grid-cols md:grid-cols-3 lg:grid-cols-4 md:gap-10 lg:gap-17">
       {data.map((item, i) => (

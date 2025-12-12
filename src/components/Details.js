@@ -1,7 +1,8 @@
 "use client"
+import Loading from "@/app/[details]/loading";
 import { DataContext } from "@/contexts/DataContext";
 import Image from "next/image";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 function Details() {
   const { data } = useContext(DataContext);
@@ -12,6 +13,19 @@ function Details() {
   const filteredData = data?.filter(
     item => item?.name?.toLowerCase() === detail?.toLowerCase(),
   );
+  const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+  
+      return () => clearTimeout(timer);
+    }, []);
+  
+    if (loading) {
+      return <Loading />;
+    }
   return (
     <div className="w-full m-auto max-w-75 md:max-w-325">
       {filteredData?.map((item, i) => (
